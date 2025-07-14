@@ -1,10 +1,22 @@
 :root{
     --header-background : #D9D9D9;
-    --navbar-background : #403D39;
+    --navbar-background : #FFFCF2;
     --white : #FFFFFF; 
+
     --font1-color : #FFFCF2;
+    --font2-color : #252422;
+    --font3-color : #403D39;
+    --font4-color :  rgb(236, 128, 21);
+
+    --nav-link-color1 : #403D39;
+    --nav-link-color2 : #252422;
+    --nav-link-color3 : #FFFCF2;
+
     --orange : rgb(236, 128, 21);
     --light-orange : rgba(236, 128, 21, 0.781);
+    
+    --header-box-shadow1: rgb(37, 36, 34);
+    --header-box-shadow2: rgb(64, 61, 57);
 }
 
 *{
@@ -26,7 +38,7 @@ body{
 }
 /* Navbar style */
 .navbar-container {
-  z-index: 1;
+  z-index: 3;
   background-color: var(--navbar-background);
   position: fixed;
   top: 0; 
@@ -35,9 +47,12 @@ body{
   justify-content: space-between;
   align-items: center;
   padding: 0 70px;
+  box-shadow: var(--header-box-shadow2) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.1) 0px 1px 3px -1px;
+
 }
 .navbar-container h2 {
-  color: var(--font1-color);
+  color: var(--font4-color);
   font-size: 24px;
   font-weight: bold;
   text-transform: capitalize;
@@ -47,7 +62,7 @@ body{
 }
 
 .navbar a {
-  color: var(--font1-color);
+  color: var(--nav-link-color1);
   text-align: center;
   text-decoration: none;
   padding: 20px 0 20px 20px;
