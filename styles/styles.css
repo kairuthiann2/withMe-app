@@ -17,6 +17,8 @@
     
     --header-box-shadow1: rgb(37, 36, 34);
     --header-box-shadow2: rgb(64, 61, 57);
+
+    --footer-background: #403D39;
 }
 
 *{
@@ -28,6 +30,7 @@
 }
 html {
   scroll-padding-top: 80px; /* Must be at least as tall as your navbar (60px) */
+  scroll-behavior: smooth;
 }
 
 /* ========== Body =============== */
@@ -67,6 +70,47 @@ body{
   text-decoration: none;
   padding: 20px 0 20px 20px;
   font-size: 14px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.navbar a:hover{
+    color: var(--nav-link-color2); 
+    font-weight: 600;     
+    transform: scale(1.05);
+}
+.navbar a.active{
+    color: var(--nav-link-color2);    
+    font-weight: 600;    
+}
+/* Hamburger base styles */
+.hamburger {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hamburger span {
+  display: block;
+  height: 6px;
+  background-color: var(--nav-link-color2);
+  transition: 0.4s ease;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+
+/* Hamburger active state (X) */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
 }
 
 
@@ -219,16 +263,55 @@ main{
 /* ========== Footer =============== */
 footer {
     width: 100%;
-    padding: 20px;
-    background-color: var(--header-background);
-    text-align: center;
+    padding: 20px 70px;
+    background-color: var(--footer-background);
+    color: var(--font1-color);
+    display: flex;
+    flex-direction: row;       
+    justify-content: space-between;
 }
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    
+}
+.footer-links a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--font4-color);
+    font-size: 14px;
+    padding-bottom: 20px;    
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.footer-links a:hover{
+    color: var(--font1-color);    
+    transform: scale(1.05);  
+}
+.footer-links a.active{
+    color: var(--font1-color);      
+}
+
 
 /* ====================Smaller screens ============================= */
 @media (max-width: 768px) {
     .navbar-container{
     padding: 0 35px;
+    background-color: var(--navbar-background);
+    width: 100%;
+    align-items: center;
+    gap: 15px;
+   
+  }
+    .navbar{
+        display: none;
+        flex-direction: column;
     }
+.navbar.show {
+    display: flex;
+  }
+    .hamburger {
+    display: block;
+  }
      main {
         margin: 100px 35px;
     }
@@ -255,4 +338,13 @@ footer {
         width: 90%;
         padding: 20px;
     }
+    footer {
+    width: 100%;
+    padding: 20px 35px;
+    display: flex;
+    flex-direction: column-reverse;       
+    justify-content: space-between;
+        align-items: center;
+}
+
 }
